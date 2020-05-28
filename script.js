@@ -32,10 +32,11 @@ document.getElementById("slider").oninput = function() {
 // Press submit length button to prompt user
 document.getElementById("chars").addEventListener("click", askUser);
     function askUser () {
-        confirm ("There will be 4 Questions. Please answer yes to one or more:")
+        confirm ("There will be 4 Questions. Please type 'yes' to one or more:")
       allChars.forEach(set => {
-        var useChar = (prompt(`Do you want to use ${set.name}?`));
+        var useChar = (prompt(`Do you want to use ${set.name}?`)) 
         if (useChar === "yes" || useChar === "y") {
+           useChar.toLowerCase;
             set.use = true;
         }
         if(set.use){
@@ -50,8 +51,8 @@ document.getElementById("chars").addEventListener("click", askUser);
     document.getElementById("generate").addEventListener("click", generatePassword);
       function generatePassword() {
      let plength = document.getElementById("slider").value; 
-        for (var i = 1; i <= plength; i++) {
-          password = password + pwdChars.charAt(Math.floor(Math.random() * Math.floor(pwdChars.length) - 1));
+        for (var i = 0; i < plength; i++) {
+          password = password + pwdChars.charAt(Math.floor(Math.random() * Math.floor(pwdChars.length)));
            document.getElementById("display").innerHTML = password;
 
         }
